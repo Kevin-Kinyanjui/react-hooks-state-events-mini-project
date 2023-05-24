@@ -1,7 +1,7 @@
 import React from "react";
 
 function CategoryFilter({ categories, click }) {
-  const buttons = categories.map((category, index) => {
+  const catFilter = categories.map((category, index) => {
     return (
       <button key={index} className={category} onClick={() => click(category)}>
         {category}{" "}
@@ -11,7 +11,7 @@ function CategoryFilter({ categories, click }) {
   return (
     <div className="categories">
       <h5>Category filters</h5>
-      {buttons}
+      {catFilter}
     </div>
   );
 }

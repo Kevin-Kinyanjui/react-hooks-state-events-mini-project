@@ -2,7 +2,7 @@ import React from "react";
 import Task from "./Task";
 
 function TaskList({ tasks, click }) {
-  const tasksList = tasks.map((task, id) => (
+  const dispayTasks = tasks.map((task, id) => (
     <Task
       key={id}
       task={task}
@@ -11,7 +11,7 @@ function TaskList({ tasks, click }) {
       click={click}
     />
   ));
-  return <div className="tasks">{tasksList}</div>;
+  return <div className="tasks">{dispayTasks}</div>;
 }
 
 export default TaskList;

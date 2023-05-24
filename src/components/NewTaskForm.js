@@ -1,7 +1,7 @@
 import React from "react";
 
 function NewTaskForm({ onTaskFormSubmit, categories }) {
-  let newArr = categories
+  let displayArray = categories
     .filter((cat) => cat !== "All")
     .map((cat, index) => <option key={index}>{cat}</option>);
   return (
@@ -21,7 +21,7 @@ function NewTaskForm({ onTaskFormSubmit, categories }) {
       </label>
       <label>
         Category
-        <select name="category">{newArr}</select>
+        <select name="category">{displayArray}</select>
       </label>
       <input type="submit" value="Add task" />
     </form>

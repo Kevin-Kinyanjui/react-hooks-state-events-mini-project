@@ -6,14 +6,17 @@ import { CATEGORIES, TASKS } from "../data";
 
 function App() {
   let tasks = TASKS;
+  const categories = CATEGORIES;
+
   const [list, setList] = useState(tasks);
   const [deletedList, setDeleted] = useState(tasks);
 
-  const categories = CATEGORIES;
-
-  function deleted(task) {
-    setList((lastValue) => lastValue.filter((taskId) => taskId !== task));
-    setDeleted((lastValue) => lastValue.filter((taskId) => taskId !== task));
+  function onTaskFormSubmit(newObj) {
+    setList((lastValue) => {
+      setDeleted((lastValue) => [...lastValue, newObj]);
+      return [...lastValue, newObj];
+    });
+    return newObj;
   }
 
   function selected(category) {
@@ -29,14 +32,10 @@ function App() {
     });
   }
 
-  function onTaskFormSubmit(newObj) {
-    setList((lastValue) => {
-      setDeleted((lastValue) => [...lastValue, newObj]);
-      return [...lastValue, newObj];
-    });
-    return newObj;
+  function deleted(task) {
+    setList((lastValue) => lastValue.filter((taskId) => taskId !== task));
+    setDeleted((lastValue) => lastValue.filter((taskId) => taskId !== task));
   }
-
   return (
     <div className="App">
       <h2>My tasks</h2>
