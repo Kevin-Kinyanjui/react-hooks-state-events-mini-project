@@ -12,8 +12,8 @@ function App() {
   const categories = CATEGORIES;
 
   function deleted(task) {
-    setList((lastValue) => lastValue.filter((el) => el !== task));
-    setDeleted((lastValue) => lastValue.filter((el) => el !== task));
+    setList((lastValue) => lastValue.filter((taskId) => taskId !== task));
+    setDeleted((lastValue) => lastValue.filter((taskId) => taskId !== task));
   }
 
   function selected(category) {
